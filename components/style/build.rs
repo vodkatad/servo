@@ -2,8 +2,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#![feature(path, io, os)]
+
 use std::os;
-use std::path::Path;
+use std::old_path::Path;
 use std::old_io::process::{Command, ProcessExit, StdioContainer};
 use std::old_io::File;
 
@@ -26,6 +28,6 @@ fn main() {
         .output()
         .unwrap();
     assert_eq!(result.status, ProcessExit::ExitStatus(0));
-    let out = Path::new(os::getenv("OUT_DIR").unwrap());
-    File::create(&out.join("properties.rs")).unwrap().write(&*result.output).unwrap();
+    let out = Path::new(os::var("OUT_DIR").unwrap());
+    File::create(&out.join("properties.rs")).unwrap().write_all(&*result.output).unwrap();
 }

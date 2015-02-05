@@ -12,12 +12,11 @@
 //!  - `#[dom_struct]` : Implies `#[privatize]`,`#[jstraceable]`, and `#[must_root]`.
 //!     Use this for structs that correspond to a DOM type
 
-#![feature(plugin_registrar, quote, plugin, box_syntax)]
+#![feature(plugin_registrar, quote, plugin, box_syntax, rustc_private, core)]
 
 #![deny(unused_imports)]
 #![deny(unused_variables)]
 #![allow(missing_copy_implementations)]
-#![allow(unstable)]
 
 #[plugin]
 #[macro_use]

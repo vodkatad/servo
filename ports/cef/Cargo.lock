@@ -34,7 +34,7 @@ dependencies = [
 [[package]]
 name = "azure"
 version = "0.1.0"
-source = "git+https://github.com/servo/rust-azure#779233af589e797f07e9e2f3f45017fb55c33c68"
+source = "git+https://github.com/servo/rust-azure#9ae7938c56e8c59d09a3ce682dd4cf5fcbb2ac57"
 dependencies = [
  "core_foundation 0.1.0 (git+https://github.com/servo/rust-core-foundation)",
  "core_graphics 0.1.0 (git+https://github.com/servo/rust-core-graphics)",
@@ -228,7 +228,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "expat-sys"
 version = "2.1.0"
-source = "git+https://github.com/servo/libexpat#da2ddaf78cbef836b8790807bb76b357c58df3a1"
+source = "git+https://github.com/servo/libexpat#fe8c3222efdd486b95ef198ef4eee0506e37a809"
 
 [[package]]
 name = "fontconfig"
@@ -241,7 +241,7 @@ dependencies = [
 [[package]]
 name = "fontconfig-sys"
 version = "2.11.1"
-source = "git+https://github.com/servo/libfontconfig#daad401395620eb2bf5398b553074931cf91f932"
+source = "git+https://github.com/servo/libfontconfig#4fdcf156b4d5e1e9712cf4a4dff8eccef3c9ad5d"
 dependencies = [
  "expat-sys 2.1.0 (git+https://github.com/servo/libexpat)",
  "freetype-sys 2.4.11 (git+https://github.com/servo/libfreetype2)",
@@ -255,7 +255,7 @@ source = "git+https://github.com/servo/rust-freetype#f65e8d82550b5d5b06a7785a13a
 [[package]]
 name = "freetype-sys"
 version = "2.4.11"
-source = "git+https://github.com/servo/libfreetype2#dcee725a19e4ec7ab3d92ed4b859c2392a23f31f"
+source = "git+https://github.com/servo/libfreetype2#ee407ed04ae868c74507c6c53b7f95fca2b4f9ae"
 
 [[package]]
 name = "gcc"
@@ -392,7 +392,7 @@ dependencies = [
 [[package]]
 name = "harfbuzz"
 version = "0.1.0"
-source = "git+https://github.com/servo/rust-harfbuzz#59b5b18087418404d661784934c3d864386024b5"
+source = "git+https://github.com/servo/rust-harfbuzz#c7866672732b4b5d3a8ea9e7f35a548af4b412a7"
 
 [[package]]
 name = "html5ever"
@@ -443,7 +443,7 @@ dependencies = [
 [[package]]
 name = "js"
 version = "0.1.0"
-source = "git+https://github.com/servo/rust-mozjs#37fb09a6c37f2ee4fbebf09ac1fbf3b1d66ac6c4"
+source = "git+https://github.com/servo/rust-mozjs#8f39e40226ec9a9c020665b94d545051c3d16e18"
 dependencies = [
  "mozjs-sys 0.0.0 (git+https://github.com/servo/mozjs)",
 ]
@@ -559,7 +559,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "mozjs-sys"
 version = "0.0.0"
-source = "git+https://github.com/servo/mozjs#58ee8869c7e589244ab2eb3a3ad15e2b64498428"
+source = "git+https://github.com/servo/mozjs#5c5c0e8a737fc9471d05073ffedd7f67e4fcfb79"
 
 [[package]]
 name = "msg"
@@ -729,7 +729,7 @@ dependencies = [
 [[package]]
 name = "skia"
 version = "0.0.20130412"
-source = "git+https://github.com/servo/skia?branch=upstream-2014-06-16#387777643df6df6ce8fb61ce069c7c60b32ab38c"
+source = "git+https://github.com/servo/skia?branch=upstream-2014-06-16#76b626df0d6cfb32eb1ee5ba3c7b52aadd5a42e3"
 dependencies = [
  "expat-sys 2.1.0 (git+https://github.com/servo/libexpat)",
  "freetype-sys 2.4.11 (git+https://github.com/servo/libfreetype2)",
@@ -738,7 +738,7 @@ dependencies = [
 [[package]]
 name = "stb_image"
 version = "0.1.0"
-source = "git+https://github.com/servo/rust-stb-image#2ba03a447b9ef101c25e07bb7f8876416e5fcd71"
+source = "git+https://github.com/servo/rust-stb-image#8fb5031333ea142802724719ce20bfa132bc4802"
 
 [[package]]
 name = "string_cache"
