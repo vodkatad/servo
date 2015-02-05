@@ -16,7 +16,7 @@ use util::logical_geometry::{WritingMode, LogicalMargin};
 use util::geometry::Au;
 use url::Url;
 use cssparser::{Parser, Color, RGBA, AtRuleParser, DeclarationParser,
-                DeclarationListParser, parse_important};
+                DeclarationListParser, parse_important, ToCss};
 use geom::SideOffsets2D;
 
 use values::specified::BorderStyle;
@@ -1714,6 +1714,8 @@ pub mod longhands {
         pub mod computed_value {
             use values::specified::Angle;
             use values::CSSFloat;
+            use cssparser::ToCss;
+            use text_writer::{self, TextWriter};
 
             // TODO(pcwalton): `blur`, `drop-shadow`
             #[derive(Clone, PartialEq, Show)]
@@ -1728,9 +1730,45 @@ pub mod longhands {
                 Sepia(CSSFloat),
             }
 
+            impl ToCss for Filter {
+                fn to_css<W>(&self, dest: &mut W) -> text_writer::Result where W: TextWriter {
+                    match *self {
+                        Filter::Brightness(value) => try!(write!(dest, "brightness({})", value)),
+                        Filter::Contrast(value) => try!(write!(dest, "contrast({})", value)),
+                        Filter::Grayscale(value) => try!(write!(dest, "grayscale({})", value)),
+                        Filter::HueRotate(value) => {
+                            try!(dest.write_str("hue-rotate("));
+                            try!(value.to_css(dest));
+                            try!(dest.write_str(")"));
+                        }
+                        Filter::Invert(value) => try!(write!(dest, "invert({})", value)),
+                        Filter::Opacity(value) => try!(write!(dest, "opacity({})", value)),
+                        Filter::Saturate(value) => try!(write!(dest, "saturate({})", value)),
+                        Filter::Sepia(value) => try!(write!(dest, "sepia({})", value)),
+                    }
+                    Ok(())
+                }
+            }
+
             #[derive(Clone, PartialEq, Show)]
             pub struct T {
                 pub filters: Vec<Filter>,
+            }
+
+            impl ToCss for T {
+                fn to_css<W>(&self, dest: &mut W) -> text_writer::Result where W: TextWriter {
+                    let mut iter = self.iter();
+                    if let Some(filter) = iter.next() {
+                        try!(filter.to_css(dest));
+                    } else {
+                        return Ok(())
+                    }
+                    for filter in iter {
+                        try!(dest.write_str(" "));
+                        try!(filter.to_css(dest));
+                    }
+                    Ok(())
+                }
             }
 
             impl T {
@@ -2448,10 +2486,10 @@ pub enum DeclaredValue<T> {
     // depending on whether the property is inherited.
 }
 
-impl<T: Show> DeclaredValue<T> {
+impl<T: ToCss> DeclaredValue<T> {
     pub fn specified_value(&self) -> Option<String> {
         match self {
-            &DeclaredValue::SpecifiedValue(ref inner) => Some(format!("{:?}", inner)),
+            &DeclaredValue::SpecifiedValue(ref inner) => Some(inner.to_css_string()),
             &DeclaredValue::Initial => None,
             &DeclaredValue::Inherit => Some("inherit".to_owned()),
         }

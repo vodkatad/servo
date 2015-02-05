@@ -176,7 +176,7 @@ fn get_proc_self_statm_field(field: uint) -> Option<u64> {
     match f.read_to_string() {
         Ok(contents) => {
             let s = option_try!(contents.as_slice().words().nth(field));
-            let npages: u64 = option_try!(s.parse());
+            let npages: u64 = option_try!(s.parse().ok());
             Some(npages * (page_size() as u64))
         }
         Err(_) => None

@@ -179,7 +179,7 @@ pub fn parse_length(mut value: &str) -> LengthOrPercentageOrAuto {
     value = value.slice_to(end_index);
 
     if found_percent {
-        let result: Option<f64> = FromStr::from_str(value);
+        let result: Result<f64, _> = FromStr::from_str(value);
         match result {
             Ok(number) => return LengthOrPercentageOrAuto::Percentage((number as f64) / 100.0),
             Err(_) => return LengthOrPercentageOrAuto::Auto,

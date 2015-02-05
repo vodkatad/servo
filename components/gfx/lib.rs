@@ -13,6 +13,7 @@
 extern crate log;
 
 extern crate azure;
+#[macro_use] extern crate bitflags;
 extern crate collections;
 extern crate geom;
 extern crate layers;

@@ -35,3 +35,4 @@ git = "https://github.com/servo/rust-io-surface"
 
 [dependencies]
 url = "0.2.16"
+bitflags = "0.1"

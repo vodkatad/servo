@@ -287,6 +287,7 @@ name = "gfx"
 version = "0.0.1"
 dependencies = [
  "azure 0.1.0 (git+https://github.com/servo/rust-azure)",
+ "bitflags 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "core_foundation 0.1.0 (git+https://github.com/servo/rust-core-foundation)",
  "core_graphics 0.1.0 (git+https://github.com/servo/rust-core-graphics)",
  "core_text 0.1.0 (git+https://github.com/servo/rust-core-text)",
@@ -447,8 +448,8 @@ source = "git+https://github.com/servo/html5ever#7f9dc5ce31596d6c22e344aa5b78149
 
 [[package]]
 name = "hyper"
-version = "0.1.9"
-source = "git+https://github.com/servo/hyper?branch=servo#c983ebf3ce1e5b06f500246375e538643ab03c76"
+version = "0.1.10"
+source = "git+https://github.com/servo/hyper?branch=servo#1f5547c4b7fd29781426f82dd857a96f1478b01c"
 dependencies = [
  "cookie 0.1.11 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -520,6 +521,7 @@ dependencies = [
 name = "layout"
 version = "0.0.1"
 dependencies = [
+ "bitflags 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "canvas 0.0.1",
  "cssparser 0.2.0 (git+https://github.com/servo/rust-cssparser)",
  "encoding 0.2.20 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -599,9 +601,10 @@ name = "msg"
 version = "0.0.1"
 dependencies = [
  "azure 0.1.0 (git+https://github.com/servo/rust-azure)",
+ "bitflags 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "core_foundation 0.1.0 (git+https://github.com/servo/rust-core-foundation)",
  "geom 0.1.0 (git+https://github.com/servo/rust-geom)",
- "hyper 0.1.9 (git+https://github.com/servo/hyper?branch=servo)",
+ "hyper 0.1.10 (git+https://github.com/servo/hyper?branch=servo)",
  "io_surface 0.1.0 (git+https://github.com/servo/rust-io-surface)",
  "layers 0.1.0 (git+https://github.com/servo/rust-layers)",
  "style 0.0.1",
@@ -619,7 +622,7 @@ name = "net"
 version = "0.0.1"
 dependencies = [
  "geom 0.1.0 (git+https://github.com/servo/rust-geom)",
- "hyper 0.1.9 (git+https://github.com/servo/hyper?branch=servo)",
+ "hyper 0.1.10 (git+https://github.com/servo/hyper?branch=servo)",
  "png 0.1.0 (git+https://github.com/servo/rust-png)",
  "stb_image 0.1.0 (git+https://github.com/servo/rust-stb-image)",
  "time 0.1.15 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -707,6 +710,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "script"
 version = "0.0.1"
 dependencies = [
+ "bitflags 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "canvas 0.0.1",
  "cssparser 0.2.0 (git+https://github.com/servo/rust-cssparser)",
  "devtools_traits 0.0.1",
@@ -714,7 +718,7 @@ dependencies = [
  "geom 0.1.0 (git+https://github.com/servo/rust-geom)",
  "gfx 0.0.1",
  "html5ever 0.0.0 (git+https://github.com/servo/html5ever)",
- "hyper 0.1.9 (git+https://github.com/servo/hyper?branch=servo)",
+ "hyper 0.1.10 (git+https://github.com/servo/hyper?branch=servo)",
  "js 0.1.0 (git+https://github.com/servo/rust-mozjs)",
  "msg 0.0.1",
  "net 0.0.1",
@@ -784,6 +788,7 @@ dependencies = [
 name = "style"
 version = "0.0.1"
 dependencies = [
+ "bitflags 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "cssparser 0.2.0 (git+https://github.com/servo/rust-cssparser)",
  "encoding 0.2.20 (registry+https://github.com/rust-lang/crates.io-index)",
  "geom 0.1.0 (git+https://github.com/servo/rust-geom)",

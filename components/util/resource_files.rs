@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 use std::old_io::{File, IoResult};
-use std::path::Path;
+use std::old_path::Path;
 
 #[cfg(not(target_os = "android"))]
 use opts;

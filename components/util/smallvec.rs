@@ -325,7 +325,7 @@ impl<'a, T: 'a> Iterator for SmallVecMoveIterator<'a,T> {
 impl<'a, T: 'a> Drop for SmallVecMoveIterator<'a,T> {
     fn drop(&mut self) {
         // Destroy the remaining elements.
-        for _ in *self {}
+        for _ in self.by_ref() {}
 
         match self.allocation {
             None => {}
