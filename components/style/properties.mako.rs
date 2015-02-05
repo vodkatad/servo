@@ -1757,7 +1757,7 @@ pub mod longhands {
 
             impl ToCss for T {
                 fn to_css<W>(&self, dest: &mut W) -> text_writer::Result where W: TextWriter {
-                    let mut iter = self.iter();
+                    let mut iter = self.filters.iter();
                     if let Some(filter) = iter.next() {
                         try!(filter.to_css(dest));
                     } else {
