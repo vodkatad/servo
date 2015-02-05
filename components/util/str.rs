@@ -68,7 +68,7 @@ pub static HTML_SPACE_CHARACTERS: StaticCharVec = &[
 ];
 
 pub fn split_html_space_chars<'a>(s: &'a str) ->
-                                  Filter<&'a str, Split<'a, StaticCharVec>, fn(&&str) -> bool> {
+                                  Filter<Split<'a, StaticCharVec>, fn(&&str) -> bool> {
     fn not_empty(&split: &&str) -> bool { !split.is_empty() }
     s.split(HTML_SPACE_CHARACTERS).filter(not_empty as fn(&&str) -> bool)
 }
@@ -181,14 +181,14 @@ pub fn parse_length(mut value: &str) -> LengthOrPercentageOrAuto {
     if found_percent {
         let result: Option<f64> = FromStr::from_str(value);
         match result {
-            Some(number) => return LengthOrPercentageOrAuto::Percentage((number as f64) / 100.0),
-            None => return LengthOrPercentageOrAuto::Auto,
+            Ok(number) => return LengthOrPercentageOrAuto::Percentage((number as f64) / 100.0),
+            Err(_) => return LengthOrPercentageOrAuto::Auto,
         }
     }
 
     match FromStr::from_str(value) {
-        Some(number) => LengthOrPercentageOrAuto::Length(Au::from_px(number)),
-        None => LengthOrPercentageOrAuto::Auto,
+        Ok(number) => LengthOrPercentageOrAuto::Length(Au::from_px(number)),
+        Err(_) => LengthOrPercentageOrAuto::Auto,
     }
 }
 
